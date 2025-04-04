@@ -1,4 +1,5 @@
 import { Enrollment } from "src/enrollments/entities/enrollment.entity";
+import { GradeLevel } from "src/grade-level/entities/grade-level.entity";
 import { User } from "src/users/entities/user.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
@@ -16,11 +17,12 @@ export class Course {
     endDate: Date
     @Column({nullable: true})
     image: string
-    @Column({default: true})
+    @Column({default: false})
     isActive: boolean
-    @ManyToOne(()=> User, (instructor) => instructor.courses)
+    @ManyToOne(()=> User, (instructor) => instructor.courses, {nullable: true})
     instructor: User
-
+    @ManyToOne(()=> GradeLevel, (gl) => gl.courses, {nullable: true})
+    gradeLevel: GradeLevel
     @OneToMany(() => Enrollment, (enrollment) => enrollment.course)
     enrollments: Enrollment[];
     // timestamps
