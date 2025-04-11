@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './users/users.module';
-import { CoursesModule } from './courses/courses.module';
+import { UsersModule } from './modules/users/users.module'; 
+import { CoursesModule } from './modules/courses/courses.module';
 import { AuthModule } from './auth/auth.module';
-import { RolesModule } from './roles/roles.module';
-import { CommentsModule } from './comments/comments.module';
-import { PostsModule } from './posts/posts.module';
-import { EnrollmentsModule } from './enrollments/enrollments.module';
-import { GradeLevelModule } from './grade-level/grade-level.module';
+import { RolesModule } from './modules/roles/roles.module';
+import { CommentsModule } from './modules/comments/comments.module';
+import { PostsModule } from './modules/posts/posts.module';
+import { EnrollmentsModule } from './modules/enrollments/enrollments.module';
+import { GradeLevelModule } from './modules/grade-level/grade-level.module';
 
 @Module({
   imports: [
